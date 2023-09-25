@@ -39,6 +39,20 @@ masterPlay.addEventListener("click", function () {
     }
 })
 
+//auto-increment song after ending
+setInterval(function(){
+    if(Math.floor(myAudio.currentTime)==Math.floor(myAudio.duration))
+    {
+        songList[songIndex].style.backgroundColor = "white";
+        songIndex=(songIndex+1)%song.length;
+        myAudio.src=song[songIndex].filePath;
+        myAudio.play();
+        songList[songIndex].style.backgroundColor = "green";
+        let child=songList[songIndex].children[1];
+        child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
+    }
+   
+},1000)
 //to update to progress bar
 let progressBar = document.getElementById('myProgressBar');
 myAudio.addEventListener("timeupdate", function () {
@@ -61,55 +75,74 @@ let nextSong = document.getElementById("nextSong");
 
 prevSong.addEventListener("click", function () {
     //myAudio.pause();
-    if (songIndex > 0) {
-        songIndex--;
-        //myAudio = new Audio(song[songIndex].filePath)
-        myAudio.src=song[songIndex].filePath;
-        myAudio.play();
-        songList[songIndex + 1].style.backgroundColor = "white";
-        songList[songIndex].style.backgroundColor = "green";
-        let child=songList[songIndex].children[1];
-        child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
-    } else {
-        songIndex = songList.length - 1;
-        // myAudio = new Audio(song[songIndex].filePath)
-        myAudio.src=song[songIndex].filePath;
-        myAudio.play();
-        songList[0].style.backgroundColor = "white";
-        songList[songList.length-1].style.backgroundColor = "green";
-        let child=songList[songIndex].children[1];
-        child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
+    songList[songIndex].style.backgroundColor = "white";
+    if(!songIndex>0){
+        songIndex=song.length;
     }
+    songIndex=(songIndex-1)%song.length;
+    console.log(songIndex);
+    myAudio.src=song[songIndex].filePath;
+    myAudio.play();
+    songList[songIndex].style.backgroundColor = "green";
+    let child=songList[songIndex].children[1];
+    child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
+    // if (songIndex > 0) {
+    //     songIndex--;
+    //     //myAudio = new Audio(song[songIndex].filePath)
+    //     myAudio.src=song[songIndex].filePath;
+    //     myAudio.play();
+    //     songList[songIndex + 1].style.backgroundColor = "white";
+    //     songList[songIndex].style.backgroundColor = "green";
+    //     let child=songList[songIndex].children[1];
+    //     child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
+    // } else {
+    //     songIndex = songList.length - 1;
+    //     // myAudio = new Audio(song[songIndex].filePath)
+    //     myAudio.src=song[songIndex].filePath;
+    //     myAudio.play();
+    //     songList[0].style.backgroundColor = "white";
+    //     songList[songList.length-1].style.backgroundColor = "green";
+    //     let child=songList[songIndex].children[1];
+    //     child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
+    // }
 
     //console.log(songIndex);
 })
 nextSong.addEventListener("click", function () {
     //myAudio.pause();
-    if (songIndex < songList.length - 1) {
-        songIndex++;
+    songList[songIndex].style.backgroundColor = "white";
+    songIndex=(songIndex+1)%song.length;
+    myAudio.src=song[songIndex].filePath;
+    myAudio.play();
+    songList[songIndex].style.backgroundColor = "green";
+    let child=songList[songIndex].children[1];
+    child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
+
+    // if (songIndex < songList.length - 1) {
+    //     songIndex++;
     
-        //myAudio = new Audio(song[songIndex].filePath)
-        myAudio.src=song[songIndex].filePath;
-        myAudio.play();
+    //     //myAudio = new Audio(song[songIndex].filePath)
+    //     myAudio.src=song[songIndex].filePath;
+    //     myAudio.play();
        
-        songList[songIndex - 1].style.backgroundColor = "white";
-        songList[songIndex].style.backgroundColor = "green";
-        let child=songList[songIndex].children[1];
-        child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
+    //     songList[songIndex - 1].style.backgroundColor = "white";
+    //     songList[songIndex].style.backgroundColor = "green";
+    //     let child=songList[songIndex].children[1];
+    //     child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
        
         
 
-    } else {
-        songIndex = 0;
-        //myAudio = new Audio(song[songIndex].filePath)
-        myAudio.src=song[songIndex].filePath;
-        myAudio.play();
-        songList[songList.length-1].style.backgroundColor = "white";
-        songList[0].style.backgroundColor = "green";
-        let child=songList[songIndex].children[1];
-        child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
+    // } else {
+    //     songIndex = 0;
+    //     //myAudio = new Audio(song[songIndex].filePath)
+    //     myAudio.src=song[songIndex].filePath;
+    //     myAudio.play();
+    //     songList[songList.length-1].style.backgroundColor = "white";
+    //     songList[0].style.backgroundColor = "green";
+    //     let child=songList[songIndex].children[1];
+    //     child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
         
-    }
+    // }
    
 
     //console.log(songIndex);
