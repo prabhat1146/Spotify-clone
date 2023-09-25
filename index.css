@@ -98,7 +98,7 @@ nav ul li{
 
 /* for less than 280px */
 
-@media(max-width:280px)
+@media(max-width:300px)
 {
     nav ul{
         height: 50px;
