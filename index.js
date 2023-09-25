@@ -20,7 +20,7 @@ masterPlay.addEventListener("click", function () {
         myAudio.play();
         songList[songIndex].style.backgroundColor = "green";
         let child=songList[songIndex].children[1];
-        child.innerHTML=`${song[songIndex].songName.slice(0,20)}`;
+        child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
         masterPlay.classList.remove('fa-circle-play');
         masterPlay.classList.add('fa-circle-pause');
         let sinfo = document.getElementById("gif");
@@ -69,7 +69,7 @@ prevSong.addEventListener("click", function () {
         songList[songIndex + 1].style.backgroundColor = "white";
         songList[songIndex].style.backgroundColor = "green";
         let child=songList[songIndex].children[1];
-        child.innerHTML=`${song[songIndex].songName.slice(0,20)}`;
+        child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
     } else {
         songIndex = songList.length - 1;
         // myAudio = new Audio(song[songIndex].filePath)
@@ -78,7 +78,7 @@ prevSong.addEventListener("click", function () {
         songList[0].style.backgroundColor = "white";
         songList[songList.length-1].style.backgroundColor = "green";
         let child=songList[songIndex].children[1];
-        child.innerHTML=`${song[songIndex].songName.slice(0,20)}`;
+        child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
     }
 
     //console.log(songIndex);
@@ -95,7 +95,7 @@ nextSong.addEventListener("click", function () {
         songList[songIndex - 1].style.backgroundColor = "white";
         songList[songIndex].style.backgroundColor = "green";
         let child=songList[songIndex].children[1];
-        child.innerHTML=`${song[songIndex].songName.slice(0,20)}`;
+        child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
        
         
 
@@ -107,7 +107,7 @@ nextSong.addEventListener("click", function () {
         songList[songList.length-1].style.backgroundColor = "white";
         songList[0].style.backgroundColor = "green";
         let child=songList[songIndex].children[1];
-        child.innerHTML=`${song[songIndex].songName.slice(0,20)}`;
+        child.innerHTML=`${song[songIndex].songName.slice(0,10)}`;
         
     }
    

@@ -34,7 +34,8 @@ nav ul li{
     font-size: 1.3rem;
 }
 .container{
-    min-height: 67vh;
+    min-height: 50vh;
+    height: 67vh;
     width: 70%;
     display: flex;
     margin: 20px auto;
@@ -93,4 +94,53 @@ nav ul li{
     height: 30px;
     opacity: 0;
     transition: 0.6s ease-in-out;
+}
+
+/* for less than 280px */
+
+@media(max-width:280px)
+{
+    nav ul{
+        height: 50px;
+        width: 100vw;
+    }
+    .container{
+        width: 100vw;
+        height: 67vh;
+        margin-top: 0px;
+        border-radius: 0px;
+        border: none;
+        background-image: url("resource/mainBg.jpg");
+        /* border: 1px solid rgb(76, 76, 76); */
+    }
+    .songItem{
+        width: 82vw;
+        height: 20px;
+        margin: 5px 0px;
+    }
+    .songItem img{
+        width: 15px;
+        height: 15px;
+    }
+   
+    .songInfo{
+        position: static;
+
+     }
+    #gif{
+        width: 200px;
+        height: 10px;
+    }
+    .icon{
+        /* background: #db1717; */
+        margin: 5px;
+    }
+    .bottom{
+        width: 100vw;
+        height: 18vh; 
+    }
+
+    .song-list h3{
+        font-size: 1em;
+    }
 }
